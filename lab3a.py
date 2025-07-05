@@ -1,24 +1,5 @@
 from collections import deque
 
-def bfs(graph, start, goal):
-    visited = set()
-    queue = deque([start])
-
-    while queue:
-        vertex = queue.popleft()
-
-        if vertex == goal:
-            print(vertex)
-            return
-
-        if vertex not in visited:
-            print(vertex, end=" ")
-            visited.add(vertex)
-
-            for neighbor in graph[vertex]:
-                if neighbor not in visited:
-                    queue.append(neighbor)
-
 def dfs(graph, start, goal):
     visited = set()
     stack = [start]
@@ -38,22 +19,40 @@ def dfs(graph, start, goal):
                 if neighbor not in visited:
                     stack.append(neighbor)
 
+def bfs(graph, start, goal):
+    visited = set()
+    queue = deque([start])
+
+    while queue:
+        vertex = queue.popleft()
+
+        if vertex == goal:
+            print(vertex)
+            return
+
+        if vertex not in visited:
+            print(vertex, end=" ")
+            visited.add(vertex)
+
+            for neighbor in graph[vertex]:
+                if neighbor not in visited:
+                    queue.append(neighbor)
+
 graph = {
-    'A': ['B', 'C'],    # A is connected to B and C
-    'B': ['D', 'E'],    # B is connected to D and E
-    'C': ['F'],         # C is connected to F
-    'D': ['G'],         # D is connected to G
-    'E': ['H'],         # E is connected to H
-    'F': [],            # F is not connected to any node
-    'G': [],            # G is not connected to any node
-    'H': [],            # H is not connected to any node
+    'A': ['B', 'C'],         # A is connected to B and C
+    'B': ['A', 'D', 'E'],    # B is connected to D and E
+    'C': ['A', 'F'],         # C is connected to F
+    'D': ['B', 'G'],         # D is connected to G
+    'E': ['B', 'H'],         # E is connected to H
+    'F': ['C'],              # F is connected to C
+    'G': ['D'],              # G is connected to D
+    'H': ['E']
+
 }
 
-print("Graph:\n", graph)
+print("DFS: ", end=' ')
+dfs(graph, 'A', 'H')
 print()
 print("BFS: ", end=' ')
 bfs(graph, 'A', 'H')
-print()
-print("DFS: ", end=' ')
-dfs(graph, 'A', 'H')
 print()
