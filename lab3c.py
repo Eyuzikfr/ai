@@ -32,12 +32,13 @@ def dls(graph, start, goal, limit):
 # }
 
 graph = {
-  'A': ['B', 'G'],
-  'B': ['C', 'D'],
-  'C': ['E'],
+  'A': ['B', 'F'],
+  'B': ['A', 'C', 'D'],
+  'C': ['B', 'E'],
   'D': ['B'],
   'E': ['C'],
-  'G': ['A']
+  'F': ['A', 'G'],
+  'G': ['F']
 }
 
 start_node = 'A'
