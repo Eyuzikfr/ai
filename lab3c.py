@@ -20,29 +20,29 @@ def dls(graph, start, goal, limit):
   
   return recursive_dls(start, goal, limit, [])
 
-# graph = {
-#     'A': ['B', 'C'],         # A is connected to B and C
-#     'B': ['A', 'D', 'E'],    # B is connected to D and E
-#     'C': ['A', 'F'],         # C is connected to F
-#     'D': ['B', 'G'],         # D is connected to G
-#     'E': ['B', 'H'],         # E is connected to H
-#     'F': ['C'],              # F is connected to C
-#     'G': ['D'],              # G is connected to D
-#     'H': ['E']
-# }
-
 graph = {
-  'A': ['B', 'F'],
-  'B': ['A', 'C', 'D'],
-  'C': ['B', 'E'],
-  'D': ['B'],
-  'E': ['C'],
-  'F': ['A', 'G'],
-  'G': ['F']
+    'A': ['B', 'C'],         # A is connected to B and C
+    'B': ['A', 'D', 'E'],    # B is connected to D and E
+    'C': ['A', 'F'],         # C is connected to F
+    'D': ['B', 'G'],         # D is connected to G
+    'E': ['B', 'H'],         # E is connected to H
+    'F': ['C'],              # F is connected to C
+    'G': ['D'],              # G is connected to D
+    'H': ['E']
 }
 
+# graph = {
+#   'A': ['B', 'F'],
+#   'B': ['A', 'C', 'D'],
+#   'C': ['B', 'E'],
+#   'D': ['B'],
+#   'E': ['C'],
+#   'F': ['A', 'G'],
+#   'G': ['F']
+# }
+
 start_node = 'A'
-goal_node = 'G'
+goal_node = 'F'
 depth_limit = 2
 
 result = dls(graph, start_node, goal_node, depth_limit)
