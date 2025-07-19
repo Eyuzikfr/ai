@@ -16,7 +16,7 @@ vacuum_location = areas[0]  # Start at the first area
 # Define the simple reflex agent
 def simple_reflex_agent(location, env):
     if env[location] == 'Dirty':
-        print(f"Location {location} is Dirty. Action: Suck")
+        print(f"Location {location} is Dirty. Action: Suck and move to next area")
         env[location] = 'Clean'
     else:
         print(f"Location {location} is Clean. Action: Move to next area")
